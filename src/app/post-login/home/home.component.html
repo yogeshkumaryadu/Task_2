@@ -1,0 +1,47 @@
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="home">My Web Site</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <!-- <li class="active"><a href="home">Home</a></li>
+        <li><a href="#">Page 1</a></li>
+        <li><a href="#">Page 2</a></li> -->
+      </ul>
+      <form class="navbar-form navbar-left" action="/action_page.php">
+        <div class="form-group">
+          <input (keyup)="onSearchKeyUp($event)" [(ngModel)]="searchTerm" type="text" class="form-control" placeholder="Search" name="search">
+        </div >
+        <button  type="button" class="btn btn-danger" (click)="logOutMethod()" >Log-out</button>
+       
+      </form>
+    </div>
+  </nav>
+  
+  <div class="container">
+    <h3>Hi {{myID}}</h3>
+    <p>You can get your system IP by by clicking below button</p>
+    <p [hidden]="!isIPEnabled">Your System IP : {{mySystemIP}}</p>
+    <button  type="button" class="btn btn-primary" (click)="modalFunc()" >System IP</button>
+  </div>
+
+  <div  [hidden]="!progressSpin" class="spinner-border" role="status" style="margin-left: 600px; margin-top: 50px;">
+      <span class="sr-only">Loading...</span>
+    </div>
+
+
+    <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Value</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let item of getListItemsFiltered()">
+            <td>{{item}}</td>
+          </tr>
+          <tr *ngIf="getListItemsFiltered().length == 0">
+            <th>No items found.</th>
+          </tr>
+        </tbody>
+      </table>
