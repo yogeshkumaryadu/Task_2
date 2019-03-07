@@ -19,6 +19,9 @@
                       <div *ngIf="submitted && registerForm.controls.password.errors" class="invalid-feedback">
                           <div *ngIf="registerForm.controls.password.errors.required">Password is required</div>
                           <div *ngIf="registerForm.controls.password.errors.minlength">Password must be at least 8 characters</div>
+                          <div *ngIf="registerForm.controls.password.errors.pattern">Please enter valid password it must contain 1 uppercase, 1
+                                lowercase, 1 number and 1 special character and minimum 8 characters long and
+                                maximum 20 characters</div>
                       </div>
                   </div>
                   <div class="form-group">

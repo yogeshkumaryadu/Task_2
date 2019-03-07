@@ -40,8 +40,8 @@ export class LoginComponent implements OnInit {
       ]),
       password: new FormControl('', [
         Validators.required, 
-        Validators.min(8), 
-        Validators.max(20),
+        Validators.minLength(8), 
+        Validators.maxLength(20),
         Validators.pattern(/[a-z]+/),
         Validators.pattern(/[A-Z]+/),
         Validators.pattern(/[0-9]+/),
@@ -62,8 +62,8 @@ export class LoginComponent implements OnInit {
         return;
     }
     console.log("myname" +this.f.firstName.value);
-    //localStorage.setItem("myID",this.f.firstName.value);
-    //this.router.navigate(['home']);
+    localStorage.setItem("myID",this.f.firstName.value);
+    this.router.navigate(['home']);
 }
 
 
